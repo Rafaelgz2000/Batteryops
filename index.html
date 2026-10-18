@@ -33,6 +33,13 @@
 </main></div>
 <div id="modalRoot"></div><div id="toastRoot"></div>
 <script>
+const SUPABASE_URL = 'https://ocwnjnejribprgdfpzzz.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_ZGyDSDf6sg1nGp_1kuthnQ_WsKXU_4d';
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
 const KEY='batteryops-prototype-v1';
 const now=()=>Date.now(), iso=(t=now())=>new Date(t).toISOString(), fmt=t=>t?new Date(t).toLocaleString([], {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'—', dur=ms=>{if(ms<0)ms=0;let m=Math.floor(ms/60000);return m>=60?`${Math.floor(m/60)}h ${m%60}m`:`${m}m`};
 const demo=()=>({settings:{chargeMinutes:65,lowThreshold:30,fullThreshold:90,teamName:'Robotics Team'},batteries:[
